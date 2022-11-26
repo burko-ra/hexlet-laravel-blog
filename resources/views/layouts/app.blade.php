@@ -15,6 +15,7 @@
         <div><a href="{{ route('page.index') }}">О блоге</a></div>
     </header>
     <body>
+        @include('flash::message')
         <div class="container mt-4">
             <h1>@yield('header')</h1>
             <div>
