@@ -16,10 +16,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return 'hello, world!';
-});
+    return view('index');
+})->name('index');
 
-Route::get('about', [PageController::class, 'about']);
+Route::get('about', [PageController::class, 'about'])
+    ->name('page.index');
 
 Route::get('articles', [ArticleController::class, 'index'])
     ->name('articles.index');

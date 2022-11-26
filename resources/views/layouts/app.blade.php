@@ -9,6 +9,11 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <script src="{{ asset('js/app.js') }}"></script>
     </head>
+    <header>
+        <div><a href="{{ route('index') }}">Главная</a></div>
+        <div><a href="{{ route('articles.index') }}">Статьи</a></div>
+        <div><a href="{{ route('page.index') }}">О блоге</a></div>
+    </header>
     <body>
         <div class="container mt-4">
             <h1>@yield('header')</h1>
