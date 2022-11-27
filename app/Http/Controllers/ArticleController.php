@@ -51,14 +51,25 @@ class ArticleController extends Controller
     public function update(UpdateArticleRequest $request, $id)
     {
         $article = Article::findOrFail($id);
-        // $data = $this->validate($request, [
-        //     'name' => 'required|unique:articles,name,' . $article->id,
-        //     'body' => 'required|min:100'
-        // ]);
         $data = $request->validated();
 
         $article->fill($data);
         $article->save();
+        
+        flash('Изменения сохранены!')->success();
+
+        return redirect()
+            ->route('articles.index');
+    }
+
+    public function destroy($id)
+    {
+        $article = Article::find($id);
+        if ($article) {
+        $article->delete();
+        }
+
+        flash('Статья удалена!')->success();
 
         return redirect()
             ->route('articles.index');
